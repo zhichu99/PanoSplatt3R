@@ -1,0 +1,11 @@
+patch_embed_cls: PatchEmbedDust3R
+
+enc_depth: 24
+dec_depth: 12
+enc_embed_dim: 1024
+dec_embed_dim: 768
+enc_num_heads: 16
+dec_num_heads: 12
+pos_embed: RoPE100
+pano_rot: true
+effi_attention: true

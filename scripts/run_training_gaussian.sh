@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 /home/renjiahui/anaconda3/envs/torch2/bin/torchrun --nproc-per-node 8 --master-port 29500 trainer/trainer_gausssian.py

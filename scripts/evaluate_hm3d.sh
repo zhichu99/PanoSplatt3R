@@ -1,0 +1,1 @@
+python evaluate/evaluate_random.py --dataset hm3d

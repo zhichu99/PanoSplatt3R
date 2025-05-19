@@ -1,0 +1,22 @@
+defaults:
+  - backbone: croco
+
+name: noposplat
+
+opacity_mapping:
+  initial: 0.0
+  final: 0.0
+  warm_up: 1
+
+num_surfaces: 1
+circular_pad: true
+twodgs: true
+
+gaussian_adapter:
+  gaussian_scale_min: 0.5
+  gaussian_scale_max: 15.0
+  sh_degree: 2
+
+gs_params_head_type: dpt_gs
+
+weights_path: /home/renjiahui/PanoSplatt3R_draft/outputs/mast3r_pretrain_random_weighted_full_resolution_xformers/step_50000_abs_rel_0.1540549725294113.pth

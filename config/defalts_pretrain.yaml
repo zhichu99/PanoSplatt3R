@@ -1,0 +1,60 @@
+mode: train
+
+#dataset:
+#  overfit_to_scene: null
+
+data_loader:
+  # Avoid having to spin up new processes to print out visualizations.
+  train:
+    num_workers: 4
+    persistent_workers: true
+    batch_size: 1
+    seed: 1234
+  test:
+    num_workers: 2
+    persistent_workers: false
+    batch_size: 1
+    seed: 2345
+  val:
+    num_workers: 1
+    persistent_workers: true
+    batch_size: 1
+    seed: 3456
+
+optimizer:
+  lr: 1.5e-5
+  warm_up_steps: 2000
+  backbone_lr_multiplier: 0.1
+  lr_decay_rate: 0.1
+
+checkpointing:
+  load: null
+  every_n_train_steps: 5000
+  save_top_k: 1
+  save_weights_only: true
+
+train:
+  depth_mode: null
+  extended_visualization: false
+  print_log_every_n_steps: 100
+  total_epochs: 10
+  lambda_depth: 0.1
+  lambda_lpips: 0.05
+  lambda_rgb: 1.0
+  data_augmentation: false
+  
+test:
+  output_path: outputs/test
+
+seed: 111123
+log_path: outputs/result_stage1
+exp_name: logs
+pretrain_path: checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth
+resume: null
+
+trainer:
+  max_steps: -1
+  val_check_interval: 250
+  gradient_clip_val: 0.5
+  num_nodes: 1
+

@@ -1,0 +1,30 @@
+view_sampler:
+  name: evaluation
+  index_path: assets/evaluation_index_hm3d.json
+  num_context_views: 2
+name: hm3d
+roots:
+- /data2/local_userdata/renjiahui/hm3d/processed/hm3d_dataset_pt/
+rgb_roots:
+- /data2/local_userdata/renjiahui/hm3d/processed/hm3d_dataset/
+make_baseline_1: false
+augment: true
+image_shape:
+- 512
+- 1024
+background_color:
+- 0.0
+- 0.0
+- 0.0
+cameras_are_circular: false
+baseline_epsilon: 0.001
+max_fov: 100.0
+skip_bad_shape: true
+near: 0.1
+far: 10.0
+baseline_scale_bounds: false
+shuffle_val: true
+test_len: -1
+test_chunk_interval: 1
+test_times_per_scene: 1
+overfit_to_scene: null
