@@ -1,6 +1,6 @@
 import omegaconf
 import sys
-sys.path.append('/home/renjiahui/PanoSplatt3r')
+sys.path.append('/home/renjiahui/PanoSplatt3R')
 import numpy as np
 import cv2
 import os

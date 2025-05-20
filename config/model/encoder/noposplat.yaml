@@ -18,5 +18,3 @@ gaussian_adapter:
   sh_degree: 2
 
 gs_params_head_type: dpt_gs
-
-weights_path: /home/renjiahui/PanoSplatt3R_draft/outputs/mast3r_pretrain_random_weighted_full_resolution_xformers/step_50000_abs_rel_0.1540549725294113.pth

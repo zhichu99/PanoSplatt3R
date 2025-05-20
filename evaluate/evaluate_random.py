@@ -1,6 +1,6 @@
 import omegaconf
 import sys
-sys.path.append('/home/renjiahui/PanoSplatt3r')
+sys.path.append('/home/renjiahui/PanoSplatt3R')
 from model.encoder.gs_encoder import EncoderNoPoSplat
 from dataset.dataset_hm3d import DatasetHM3D
 from torch.utils.data import DataLoader

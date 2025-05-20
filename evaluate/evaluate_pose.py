@@ -1,6 +1,6 @@
 import omegaconf
 import sys
-sys.path.append('/home/renjiahui/PanoSplatt3r')
+sys.path.append('/home/renjiahui/PanoSplatt3R')
 from model.encoder.gs_encoder import EncoderNoPoSplat
 from dataset.dataset_hm3d import DatasetHM3D
 from torch.utils.data import DataLoader
@@ -104,8 +104,8 @@ def main(cfg):
             gt_extrinsic = (np.linalg.inv(batch['context']["pano_extrinsics"][0,0].cpu().detach().numpy()) @ batch['context']["pano_extrinsics"][0,1].cpu().detach().numpy()).astype(np.float32)
 
         est_pose = get_pose_pnp(pcd1, 512, 1024)
-        Ours_PnP['rra'].append(rotation_angle(est_pose[None, :3, :3], gt_extrinsic[None, :3, :3], batch_size=1))
-        Ours_PnP['rta'].append(translation_angle(est_pose[None, :3, 3], gt_extrinsic[None, :3, 3], batch_size=1))
+        Ours_PnP['rra'].append(rotation_angle(est_pose[None, :3, :3], gt_extrinsic[None, :3, :3], batch_size=1).numpy())
+        Ours_PnP['rta'].append(translation_angle(est_pose[None, :3, 3], gt_extrinsic[None, :3, 3], batch_size=1).numpy())
 
         reciprocal_in_P2, nn2_in_P1, num_matches = find_reciprocal_matches(pcd0, pcd1)
 
@@ -116,15 +116,15 @@ def main(cfg):
         matches_0 = pts2d0[nn2_in_P1][reciprocal_in_P2][::100]
 
         est_pose = estimate_relative_pose_from_matches(matches_0, matches_1, (1024, 512))
-        Ours_8PA['rra'].append(rotation_angle(est_pose[None, :3, :3], gt_extrinsic[None, :3, :3], batch_size=1))
-        Ours_8PA['rta'].append(translation_angle(est_pose[None, :3, 3], gt_extrinsic[None, :3, 3], batch_size=1))
+        Ours_8PA['rra'].append(rotation_angle(est_pose[None, :3, :3], gt_extrinsic[None, :3, :3], batch_size=1).numpy())
+        Ours_8PA['rta'].append(translation_angle(est_pose[None, :3, 3], gt_extrinsic[None, :3, 3], batch_size=1).numpy())
 
         img1 = (rearrange(batch['context']['pano_image'][0,0], 'c h w -> h w c').cpu().numpy() * 255).astype(np.uint8)
         img2 = (rearrange(batch['context']['pano_image'][0,1], 'c h w -> h w c').cpu().numpy() * 255).astype(np.uint8)
 
         est_pose = estimate_relative_pose(img1, img2)
-        SIFT_8PA['rra'].append(rotation_angle(est_pose[None, :3, :3], gt_extrinsic[None, :3, :3], batch_size=1))
-        SIFT_8PA['rta'].append(translation_angle(est_pose[None, :3, 3], gt_extrinsic[None, :3, 3], batch_size=1))
+        SIFT_8PA['rra'].append(rotation_angle(est_pose[None, :3, :3], gt_extrinsic[None, :3, :3], batch_size=1).numpy())
+        SIFT_8PA['rta'].append(translation_angle(est_pose[None, :3, 3], gt_extrinsic[None, :3, 3], batch_size=1).numpy())
 
     print("Ours-PnP")
     print("rra:", np.mean(Ours_PnP['rra']))

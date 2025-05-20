@@ -13,7 +13,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange, repeat
 from typing import Union, Tuple, Iterable, List, Optional, Dict
-import loralib as lora
 
 def pair(t):
     return t if isinstance(t, tuple) else (t, t)

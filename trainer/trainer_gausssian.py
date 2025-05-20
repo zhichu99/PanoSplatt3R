@@ -105,11 +105,10 @@ class Trainer:
         print(' -> dataset initialized on rank', self.gpu_id)
         
         ### network
-        # torch.manual_seed(self.cfg.seed + self.gpu_id)
         self.encoder = EncoderNoPoSplat(cfg.encoder).to(self.gpu_id)
         cf.apply_low_precision_layernorm(self.encoder.backbone, precision='amp')
 
-        backbone_ckpt = torch.load(cfg.encoder.weights_path, map_location='cpu')['model']
+        backbone_ckpt = torch.load(cfg.weights_path, map_location='cpu')['model']
 
         if cfg.encoder.circular_pad:
             backbone_ckpt = OrderedDict(
@@ -119,7 +118,7 @@ class Trainer:
                 )
 
         self.encoder.backbone.load_state_dict(backbone_ckpt, strict=False) 
-        print(f"Loaded weights from {cfg.encoder.weights_path}")
+        print(f"Loaded weights from {cfg.weights_path}")
 
         self.data_shim = get_data_shim(self.encoder)
 
@@ -218,7 +217,6 @@ class Trainer:
     
     def train_one_epoch(self):
         for batch in tqdm(self.train_dataloader, disable=(not self.gpu_id == 0), desc=f'epoch_{self.current_epoch}'):
-            # self.optimizer.zero_grad()
             batch = self.data_shim(batch)
             batch = self.to_cuda(batch)
 

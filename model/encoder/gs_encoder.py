@@ -7,7 +7,6 @@ import torch.nn.functional as F
 from einops import rearrange
 from jaxtyping import Float
 from torch import Tensor, nn
-import loralib as lora
 from collections import OrderedDict
 
 from model.dust3r.heads import head_factory

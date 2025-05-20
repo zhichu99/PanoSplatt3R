@@ -7,7 +7,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
 from .postprocess import postprocess
-import loralib as lora
 
 
 class LinearPts3d (nn.Module):

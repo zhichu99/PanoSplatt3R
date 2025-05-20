@@ -50,6 +50,7 @@ use_ema: false
 update_every: 50
 beta: 0.9999
 update_after_steps: 10000
+weights_path: /home/renjiahui/PanoSplatt3R_draft/outputs/mast3r_pretrain/step_50000_abs_rel_0.1540549725294113.pth
 
 trainer:
   max_steps: -1

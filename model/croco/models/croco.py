@@ -16,7 +16,6 @@ from functools import partial
 from models.blocks import Block, DecoderBlock, PatchEmbed
 from models.pos_embed import get_2d_sincos_pos_embed, RoPE2D 
 from models.masking import RandomMask
-import loralib as lora
 from einops import rearrange
 
 
@@ -124,10 +123,10 @@ class CroCoNet(nn.Module):
         self.apply(self._init_weights)
 
     def _init_weights(self, m):
-        if isinstance(m, lora.Linear) or isinstance(m, nn.Linear):
+        if isinstance(m, nn.Linear):
             # we use xavier_uniform following official JAX ViT:
             torch.nn.init.xavier_uniform_(m.weight)
-            if (isinstance(m, lora.Linear) or isinstance(m, nn.Linear)) and m.bias is not None:
+            if isinstance(m, nn.Linear) and m.bias is not None:
                 nn.init.constant_(m.bias, 0)
         elif isinstance(m, nn.LayerNorm):
             nn.init.constant_(m.bias, 0)

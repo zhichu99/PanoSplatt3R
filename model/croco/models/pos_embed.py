@@ -146,7 +146,7 @@ class RoPE2D(torch.nn.Module):
         updated_tokens = []
         for i in range(nhead):
             pixel_coords = rearrange(pos1d, 'b (h w) -> b h w', h=h, w=w)
-            pano_pos1d = torch.cat((pixel_coords[:, :, w//nhead*i:], pixel_coords[:, :, :w//nhead*i]), dim=2)
+            pano_pos1d = torch.roll(pixel_coords, shifts=-(w // nhead * i), dims=2)
             pano_pos1d = rearrange(pano_pos1d, 'b h w -> b (h w)')
             
             head_cos = torch.nn.functional.embedding(pano_pos1d, cos)

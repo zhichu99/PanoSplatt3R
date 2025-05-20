@@ -1,9 +1,5 @@
 from math import isqrt
 from typing import Literal, Union, Optional
-from diff_gaussian_rasterization import (
-    GaussianRasterizationSettings,
-    GaussianRasterizer,
-)
 from diff_surfel_rasterization import GaussianRasterizationSettings, GaussianRasterizer
 import torch
 from einops import einsum, rearrange, repeat

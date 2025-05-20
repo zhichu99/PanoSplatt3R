@@ -1,1 +1,1 @@
-CUDA_VISIBLE_DEVICES=4,5,6,7 python -m torch.distributed.run --nproc-per-node 4 --master-port 29520 trainer/trainer_dust3r.py
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.run --nproc-per-node 8 --master-port 29520 trainer/trainer_dust3r.py
