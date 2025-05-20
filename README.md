@@ -36,25 +36,25 @@ After downloading the datasets, please update the `roots` and `rgb_roots` in `co
 
 <!-- download weight -->
 
-<b> Evaluation on HM3D <b>
+- Evaluation on HM3D
 
 ```bash
 bash scripts/evaluate_hm3d.sh
 ```
 
-<b> Evaluation on replica <b>
+- Evaluation on replica
 ```bash
 bash scripts/evaluate_replica.sh
 ```
 
-<b> Evaluation on fixed baseline <b>
+- Evaluation on fixed baseline
 ```bash
 bash scripts/evaluate_fixed_baseline.sh
 ```
 
 - Output visualization can be enabled by revising `to_save_image` in `evaluate/evaluate_random.py` and `evaluate/evaluate_fix_baseline.py`. Rendered results will be saved in the `result/` directory.
 
-<b> Relative pose evaluation <b>
+- Relative pose evaluation
 ```bash
 scripts/evaluate_pose.sh
 ```
