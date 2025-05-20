@@ -1,6 +1,6 @@
 # PanoSplatt3R
 
-<p align="center"><span style="font-size:20px"><b>PanoSplatt3R:Leveraging Perspective Pretraining for Generalized Unposed Wide-Baseline Panorama Reconstruction</b></span></p>
+<p align="center"><span style="font-size:25px"><b>PanoSplatt3R:Leveraging Perspective Pretraining for Generalized Unposed Wide-Baseline Panorama Reconstruction</b></span></p>
 
 <p align="center"><span style="font-size:15px"><b> Jiahui Ren, Mochu Xiang, Jiajun Zhu, Yuchao Dai </b></span></p>
 
