@@ -22,7 +22,7 @@ class LinearPts3d (nn.Module):
         self.conf_mode = net.conf_mode
         self.has_conf = has_conf
 
-        self.proj = lora.Linear(net.dec_embed_dim, (3 + has_conf)*self.patch_size**2, )
+        self.proj = nn.Linear(net.dec_embed_dim, (3 + has_conf)*self.patch_size**2, )
 
     def setup(self, croconet):
         pass
@@ -54,7 +54,7 @@ class LinearGS(nn.Module):
         self.conf_mode = net.conf_mode
         self.has_conf = has_conf
 
-        self.proj = lora.Linear(net.dec_embed_dim, (2 + 1 + net.gaussian_adapter.d_in)*self.patch_size**2, r=8)  # 2 for xy offset, 1 for opacity
+        self.proj = nn.Linear(net.dec_embed_dim, (2 + 1 + net.gaussian_adapter.d_in)*self.patch_size**2, r=8)  # 2 for xy offset, 1 for opacity
 
     def setup(self, croconet):
         pass
