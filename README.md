@@ -7,8 +7,8 @@
 
 - [x] Evaluation Code
 - [x] Training Code
-- [ ] Model Checkpoint
-- [ ] Test Dataset
+- [x] Model Checkpoint
+- [x] Test Dataset
 
 ## Installation
 
@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 To obtain the HM3D training set, we follow the rendering process described in [Splatter-360](https://github.com/thucz/splatter360/blob/main/preprocess/README.md) to generate panoramic videos, which involve some randomness.The Replica test set can also be obtained from [Splatter-360](https://github.com/thucz/splatter360)
 
-Since the HM3D test set used by Splatter-360 is not publicly available, we will upload our own HM3D test data.
+Please download HM3D test data from [HuggingFace](https://huggingface.co/zhichu99/PanoSplatt3R/). As the full test set is very large, we have only uploaded the relevant frames in evaluation.
 
 For fixed-baseline evaluation, the corresponding data can be found in [PanSplat](https://github.com/chengzhag/PanSplat/tree/main).
 
@@ -33,7 +33,9 @@ After downloading the datasets, please update the `roots` and `rgb_roots` in `co
 
 ## Evaluation
 
-<!-- download weight -->
+- Download weight
+
+Please get the pretrained model from [HuggingFace](https://huggingface.co/zhichu99/PanoSplatt3R/), and save it to ./weights
 
 - Evaluation on HM3D
 
@@ -51,7 +53,7 @@ bash scripts/evaluate_replica.sh
 bash scripts/evaluate_fixed_baseline.sh
 ```
 
-- Output visualization can be enabled by revising `to_save_image` in `evaluate/evaluate_random.py` and `evaluate/evaluate_fix_baseline.py`. Rendered results will be saved in the `result/` directory.
+- Output visualization can be enabled by revising `to_save_image` in `evaluate/evaluate_random.py` and `evaluate/evaluate_fix_baseline.py`. Rendered results will be saved in `result/`.
 
 - Relative pose evaluation
 ```bash
@@ -79,6 +81,17 @@ bash scripts/run_training_gaussian.sh
 The training procedure requires at least 48 GB of GPU memory.
 
 ## Citation
+
+If you find our work useful, please consider citing: 
+
+```
+@article{ren2025panosplatt3r,
+  title={PanoSplatt3R: Leveraging Perspective Pretraining for Generalized Unposed Wide-Baseline Panorama Reconstruction},
+  author={Ren, Jiahui and Xiang, Mochu and Zhu, Jiajun and Dai, Yuchao},
+  journal={arXiv preprint arXiv:2507.21960},
+  year={2025}
+}
+```
 
 ## Acknowledgements
 
