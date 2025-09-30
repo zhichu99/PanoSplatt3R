@@ -1,6 +1,15 @@
 <h2 align="center"><b>PanoSplatt3R: Leveraging Perspective Pretraining for Generalized Unposed Wide-Baseline Panorama Reconstruction</b></h2>
 
-<p align="center">Jiahui Ren*, Mochu Xiang*, Jiajun Zhu, Yuchao Dai</p>
+<p align="center"> <span style="font-size:16px;"> Jiahui Ren*, Mochu Xiang*, Jiajun Zhu, Yuchao Dai</p>
+
+<p align="center">
+  <span style="font-size:18px;">
+    <a href="https://npucvr.github.io/PanoSplatt3R/"><b>Project Page</b></a> |
+    <a href="https://arxiv.org/abs/2507.21960"><b>arXiv</b></a> |
+    🤗 <a href="https://huggingface.co/zhichu99/PanoSplatt3R/tree/main"><b>HuggingFace</b></a>
+  </span>
+</p>
+
 
 
 ## TODO
