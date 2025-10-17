@@ -43,7 +43,7 @@ def main(cfg):
         save_path = os.path.join('result', cfg.dataset.test_datasets[0].name)
         os.makedirs(save_path, exist_ok=True)
     encoder = EncoderNoPoSplat(cfg.encoder).to('cuda')
-    ckpt = torch.load('outputs/random_with_pretrain_no_pose_2dgs_full_reso_xformers/step_100000_psnr_28.180999046148255.pth')['model']
+    ckpt = torch.load('weights/model.pth', map_location='cpu')['model']
     encoder.load_state_dict(ckpt,strict=True)
     decoder = get_decoder(cfg.decoder).to('cuda')
     data_shim = get_data_shim(encoder)
