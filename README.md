@@ -6,7 +6,7 @@
   <span style="font-size:18px;">
     <a href="https://npucvr.github.io/PanoSplatt3R/"><b>Project Page</b></a> |
     <a href="https://arxiv.org/abs/2507.21960"><b>arXiv</b></a> |
-    🤗 <a href="https://huggingface.co/zhichu99/PanoSplatt3R/tree/main"><b>HuggingFace</b></a>
+    🤗<a href="https://huggingface.co/zhichu99/PanoSplatt3R/tree/main"><b>HuggingFace</b></a>
   </span>
 </p>
 
